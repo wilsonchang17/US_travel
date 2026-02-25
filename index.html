@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🇺🇸 美國之旅 2025 — 爸媽行程指南</title>
+  <style>
+    :root {
+      --navy: #5d4934;
+      --gold: #c9a56a;
+      --blue: #9b7b4f;
+      --lightblue: #f3e6d2;
+      --green: #8b7355;
+      --orange: #b9834b;
+      --red: #9f5f46;
+      --text: #4d3b2a;
+      --muted: #8a7661;
+      --lightgray: #f5eee3;
+      --white: #fffaf1;
+      --shadow: 0 2px 16px rgba(93,73,52,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, 'PingFang TC', '微軟正黑體', 'Helvetica Neue', sans-serif;
+      font-size: 17px;
+      color: var(--text);
+      background: var(--lightgray);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--navy);
+      overflow-x: auto; white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a {
+      display: inline-block;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 13px 13px;
+      font-size: 14px; font-weight: 500;
+      transition: all 0.2s;
+    }
+    nav a:hover { color: white; background: rgba(255,255,255,0.1); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #6a4f36 0%, #9d7b53 55%, #d0b187 100%);
+      color: white; text-align: center;
+      padding: 52px 20px 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '✈'; position: absolute;
+      font-size: 220px; opacity: 0.04;
+      right: -20px; top: -30px; line-height: 1;
+    }
+    .hero-flag { font-size: 4em; display: block; margin-bottom: 10px; }
+    .hero h1 { font-size: 2.2em; font-weight: 900; letter-spacing: 3px; margin-bottom: 8px; }
+    .hero-cities { font-size: 1em; opacity: 0.85; margin-bottom: 20px; letter-spacing: 1px; }
+    .hero-dates {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      padding: 9px 28px; border-radius: 24px;
+      font-weight: 800; font-size: 1.05em; letter-spacing: 1px;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 40px 16px; }
+    .section-title {
+      font-size: 1.35em; font-weight: 800; color: var(--navy);
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    /* ── FLIGHT CARDS ── */
+    .flight-label {
+      font-size: 0.82em; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;
+    }
+    .flight-card {
+      background: var(--white);
+      border-radius: 14px; padding: 20px 22px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--blue);
+      margin-bottom: 14px;
+    }
+    .flight-card.dep { border-top-color: var(--green); }
+    .flight-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .fn { font-weight: 800; font-size: 1.05em; color: var(--navy); }
+    .fa { font-size: 0.82em; color: var(--muted); margin-top: 2px; }
+    .fd { font-size: 0.82em; color: var(--muted); }
+    .flight-route { display: flex; align-items: center; gap: 10px; }
+    .airport { text-align: center; }
+    .a-code { font-size: 1.75em; font-weight: 900; color: var(--navy); line-height: 1; }
+    .a-city { font-size: 0.76em; color: var(--muted); margin-top: 2px; }
+    .a-time { font-size: 1em; font-weight: 700; margin-top: 4px; }
+    .route-mid {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+    }
+    .r-dur { font-size: 0.78em; color: var(--muted); }
+    .r-line {
+      width: 100%; display: flex; align-items: center; gap: 6px;
+    }
+    .r-line::before, .r-line::after {
+      content: ''; flex: 1; height: 1px; background: #ddd;
+    }
+    .r-plane { color: var(--blue); font-size: 1em; }
+    .flight-note {
+      margin-top: 10px; font-size: 0.84em;
+      background: var(--lightgray); padding: 8px 12px; border-radius: 8px;
+      color: #675543;
+    }
+    .flight-group { margin-bottom: 24px; }
+
+    /* ── ENTRY STEPS ── */
+    .steps-card {
+      background: var(--white);
+      border-radius: 16px; padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .slogan {
+      background: linear-gradient(135deg, var(--navy), #9d7b53);
+      color: white; padding: 16px 20px;
+      border-radius: 12px; text-align: center;
+      margin-bottom: 28px;
+    }
+    .slogan-lbl { font-size: 0.84em; opacity: 0.8; margin-bottom: 5px; }
+    .slogan-txt { font-size: 1.3em; font-weight: 800; letter-spacing: 2px; }
+    .step {
+      display: flex; gap: 16px;
+      padding-bottom: 24px; position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute; left: 20px; top: 44px;
+      width: 2px; height: calc(100% - 20px);
+      background: linear-gradient(to bottom, rgba(155,123,79,0.3), transparent);
+    }
+    .s-num {
+      width: 42px; height: 42px;
+      background: var(--blue); color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15em; font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(155,123,79,0.35);
+    }
+    .s-body { flex: 1; }
+    .s-body h3 { font-size: 1.02em; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .s-body p { font-size: 0.91em; color: #675543; line-height: 1.7; }
+    .sign {
+      display: inline-block;
+      background: var(--lightblue); color: var(--blue);
+      padding: 2px 9px; border-radius: 5px;
+      font-size: 0.76em; font-weight: 700;
+      margin: 6px 4px 0 0;
+    }
+    .eng {
+      background: #f8eedf;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px; margin-top: 10px;
+    }
+    .eng .en { font-style: italic; font-weight: 600; color: #6d4c00; font-size: 0.91em; }
+    .eng .zh { color: var(--muted); font-size: 0.84em; margin-top: 2px; }
+    .alert {
+      background: #f7e8d4; border: 1px solid #d8b68c;
+      border-radius: 8px; padding: 10px 14px;
+      margin-top: 10px; font-size: 0.86em; color: #6b5337;
+    }
+    .alert strong { color: var(--orange); }
+
+    /* ── CUSTOMS Q&A ── */
+    .qa-grid { display: grid; gap: 10px; }
+    .qa {
+      background: var(--white);
+      border-radius: 12px; padding: 15px 18px;
+      box-shadow: var(--shadow);
+    }
+    .qa-q { font-weight: 700; font-size: 0.95em; color: var(--navy); margin-bottom: 4px; }
+    .qa-q .qe { display: block; font-style: italic; font-weight: 500; color: var(--blue); font-size: 0.88em; margin-top: 2px; }
+    .qa-a { font-size: 0.9em; color: #675543; }
+    .qa-a .ae { font-style: italic; font-weight: 600; color: var(--green); }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--white);
+      border-radius: 14px; padding: 20px 22px;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--green);
+    }
+    .contact h3 { color: var(--navy); font-size: 1em; margin-bottom: 14px; }
+    .ci { display: flex; gap: 10px; margin-bottom: 10px; font-size: 0.92em; }
+    .ci .lbl { font-weight: 700; color: var(--muted); min-width: 56px; flex-shrink: 0; }
+    .phone { color: var(--blue); text-decoration: none; font-weight: 700; font-size: 1.1em; }
+    .note-box {
+      background: #f8eedf; border-radius: 8px;
+      padding: 10px 14px; margin-top: 12px;
+      font-size: 0.86em; color: #6b5337;
+    }
+
+    /* ── DAY CARDS ── */
+    .day-card {
+      background: var(--white);
+      border-radius: 20px; overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .day-hdr {
+      background: linear-gradient(135deg, var(--navy) 0%, #9d7b53 100%);
+      color: white; padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .day-hdr.gray { background: linear-gradient(135deg, #8b7760, #6d5b47); }
+    .badge {
+      width: 56px; height: 56px;
+      background: var(--gold); color: var(--navy);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      flex-shrink: 0; font-weight: 900;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .badge.silver { background: #c9b89e; color: #5d4934; }
+    .badge .bn { font-size: 1.4em; line-height: 1; }
+    .badge .bl { font-size: 0.52em; opacity: 0.8; }
+    .hdr-txt h2 { font-size: 1.12em; margin-bottom: 4px; }
+    .hdr-txt .dt { font-size: 0.84em; opacity: 0.75; }
+    .day-body { padding: 20px 22px; }
+
+    .t-block { margin-bottom: 16px; }
+    .t-lbl {
+      display: inline-block;
+      font-size: 0.76em; font-weight: 700; letter-spacing: 0.4px;
+      padding: 3px 10px; border-radius: 5px; margin-bottom: 10px;
+    }
+    .t-lbl.morn { background: #f6e8d2; color: var(--orange); }
+    .t-lbl.noon { background: #efe2cd; color: var(--green); }
+    .t-lbl.aftn { background: var(--lightblue); color: var(--blue); }
+    .t-lbl.evng { background: #eadcc6; color: #7b6143; }
+    .t-lbl.nite { background: #e4d6c2; color: #705b43; }
+    .t-lbl.flgt { background: #efe0ca; color: #7b5e3e; }
+    .t-lbl.note { background: #f4dfd2; color: var(--red); }
+
+    .place {
+      display: flex; gap: 12px;
+      margin-bottom: 14px;
+    }
+    .p-icon { font-size: 1.3em; width: 28px; text-align: center; flex-shrink: 0; margin-top: 2px; }
+    .p-body h4 { font-size: 0.98em; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .p-body p { font-size: 0.87em; color: #6e5a45; line-height: 1.6; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: 3px;
+      color: var(--blue); text-decoration: none;
+      font-size: 0.8em; font-weight: 600;
+      margin-top: 4px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .map-link:hover { border-bottom-color: var(--blue); }
+
+    .dvdr { height: 1px; background: #e7dbc8; margin: 14px 0; }
+    .stay {
+      background: var(--lightgray); border-radius: 10px;
+      padding: 10px 14px; font-size: 0.87em; color: #6e5a45;
+      margin-top: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .stay strong { color: var(--navy); }
+
+    .info-box {
+      background: var(--lightblue); border-radius: 10px;
+      padding: 10px 14px; font-size: 0.87em; color: #6f583c;
+      display: flex; gap: 8px; margin: 10px 0;
+    }
+    .warn-box {
+      background: #f7e8d4; border: 1px solid #ddc2a0;
+      border-radius: 10px; padding: 10px 14px;
+      font-size: 0.87em; color: #6d5338;
+      margin: 10px 0;
+    }
+    .warn-box strong { color: var(--orange); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.65);
+      text-align: center; padding: 32px 20px; font-size: 0.9em;
+    }
+    footer strong { color: white; }
+    footer a { color: white; }
+
+    /* ── BACK TO TOP ── */
+    .btt {
+      position: fixed; bottom: 20px; right: 20px;
+      background: var(--navy); color: white;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.3em;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      transition: all 0.2s; z-index: 100;
+    }
+    .btt:hover { background: var(--blue); transform: translateY(-3px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 580px) {
+      body { font-size: 16px; }
+      .hero h1 { font-size: 1.7em; }
+      .wrap { padding: 28px 12px; }
+      .day-body { padding: 16px; }
+      .steps-card { padding: 20px 16px; }
+    }
+    @media print {
+      nav, .btt { display: none; }
+      .day-card, .steps-card, .flight-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#top" class="btt">↑</a>
+
+<!-- NAVIGATION -->
+<nav id="top">
+  <a href="#flights-arr">✈ 去程</a>
+  <a href="#entry">🛂 入境</a>
+  <a href="#customs">💬 海關</a>
+  <a href="#contact">📞 聯絡</a>
+  <a href="#day1">Day 1</a>
+  <a href="#day2">Day 2</a>
+  <a href="#day3">Day 3</a>
+  <a href="#day4">Day 4</a>
+  <a href="#day5">Day 5</a>
+  <a href="#day6">Day 6</a>
+  <a href="#day7">Day 7</a>
+  <a href="#day8">↩ 回程</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-flag">🇺🇸</span>
+  <h1>美國之旅 2025</h1>
+  <p class="hero-cities">華盛頓特區 · 黑堡 · 紐約市</p>
+  <span class="hero-dates">5月15日 — 5月22日</span>
+</section>
+
+<!-- ═══════════════ ARRIVAL FLIGHTS ═══════════════ -->
+<div id="flights-arr" class="wrap">
+  <h2 class="section-title">✈️ 去程航班</h2>
+
+  <div class="flight-group">
+    <div class="flight-label">第一段 — 台北飛鳳凰城</div>
+    <div class="flight-card">
+      <div class="flight-top">
+        <div>
+          <div class="fn">JX 026</div>
+          <div class="fa">星宇航空 STARLUX Airlines</div>
+        </div>
+        <div class="fd">5月15日（四）</div>
+      </div>
+      <div class="flight-route">
+        <div class="airport">
+          <div class="a-code">TPE</div>
+          <div class="a-city">台北桃園</div>
+          <div class="a-time">20:10</div>
+        </div>
+        <div class="route-mid">
+          <div class="r-dur">12小時30分鐘</div>
+          <div class="r-line"><span class="r-plane">✈</span></div>
+        </div>
+        <div class="airport">
+          <div class="a-code">PHX</div>
+          <div class="a-city">鳳凰城</div>
+          <div class="a-time">17:40</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flight-group">
+    <div class="flight-label">第二段 — 鳳凰城飛華盛頓特區</div>
+    <div class="flight-card">
+      <div class="flight-top">
+        <div>
+          <div class="fn">AA 2831</div>
+          <div class="fa">美國航空 American Airlines</div>
+        </div>
+        <div class="fd">5月15日（四）深夜</div>
+      </div>
+      <div class="flight-route">
+        <div class="airport">
+          <div class="a-code">PHX</div>
+          <div class="a-city">鳳凰城</div>
+          <div class="a-time">23:46</div>
+        </div>
+        <div class="route-mid">
+          <div class="r-dur">4小時14分鐘</div>
+          <div class="r-line"><span class="r-plane">✈</span></div>
+        </div>
+        <div class="airport">
+          <div class="a-code">DCA</div>
+          <div class="a-city">華盛頓特區</div>
+          <div class="a-time">07:00 +1</div>
+        </div>
+      </div>
+      <div class="flight-note">⚠️ 抵達時間為隔天 5月16日（五）早上 7:00</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    💡 <span>在<strong>鳳凰城（PHX）</strong>辦理美國入境手續，需自行提領行李再重新托運，詳見下方入境指南。</span>
+  </div>
+</div>
+
+<!-- ═══════════════ ENTRY GUIDE ═══════════════ -->
+<div id="entry" class="wrap">
+  <h2 class="section-title">🛂 美國入境 6 步驟</h2>
+
+  <div class="steps-card">
+    <div class="slogan">
+      <div class="slogan-lbl">入境口訣</div>
+      <div class="slogan-txt">先看人 · 再拿箱 · 後過關</div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="s-num">1</div>
+      <div class="s-body">
+        <h3>證照查驗（Immigration）</h3>
+        <p>下飛機後跟著人群走，找 <strong>Passport Control</strong> 或 <strong>Arrivals</strong> 的指標。輪到你們時，把護照、說明信、回程機票一起遞給官員。</p>
+        <span class="sign">📍 Passport Control</span>
+        <div class="eng">
+          <div class="en">"Here is my passport and a letter from my son."</div>
+          <div class="zh">這是我的護照和我兒子的說明信。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="s-num">2</div>
+      <div class="s-body">
+        <h3>領取行李（Baggage Claim）</h3>
+        <p>通過官員後，看螢幕上的航班號 <strong>JX026</strong>，找到對應的行李轉盤把箱子拿下來。<strong>就算在台灣說行李直掛，在美國第一站一定要自己領</strong>。</p>
+        <span class="sign">📍 Baggage Claim</span>
+        <div class="eng">
+          <div class="en">"Where is the baggage for flight JX026?"</div>
+          <div class="zh">JX026 這班飛機的行李在哪裡？</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="s-num">3</div>
+      <div class="s-body">
+        <h3>過海關（Customs）</h3>
+        <p>推著所有行李往出口走，會經過海關櫃檯。通常直接走過去即可。如果官員問有沒有食物，請回答：</p>
+        <span class="sign">📍 Customs</span>
+        <div class="eng">
+          <div class="en">"No meat, no fruit."</div>
+          <div class="zh">沒有肉、沒有水果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="s-num">4</div>
+      <div class="s-body">
+        <h3>行李轉運（Baggage Drop）</h3>
+        <p>過完海關後立刻找 <strong>Connecting Flights</strong> 或 <strong>Baggage Drop</strong> 的指標，把行李交給工作人員即可，他們會送上下一班飛機，不需重新貼標籤。</p>
+        <span class="sign">📍 Baggage Drop</span>
+        <span class="sign">📍 Connecting Flights</span>
+        <div class="alert">
+          ⚠️ <strong>注意：</strong>免稅店買的液體或酒，要在這步<strong>之前</strong>塞進大行李箱，否則安檢時會被沒收。
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="s-num">5</div>
+      <div class="s-body">
+        <h3>重新安檢（TSA Security）</h3>
+        <p>交完行李後要重新進入國內線航廈過安檢，像在台灣出境一樣排隊——記得脫鞋子、拿出手提電腦。每個機場規定不太一樣，隨機應變。</p>
+        <span class="sign">📍 Security Check</span>
+        <span class="sign">📍 TSA</span>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="s-num">6</div>
+      <div class="s-body">
+        <h3>找新登機門（Find Your Gate）</h3>
+        <p>過完安檢後，看大螢幕找到 <strong>AA 2831</strong> 的登機門號碼，跟著指標走，提早到達等候。</p>
+        <span class="sign">📍 Gate / Departures</span>
+        <div class="eng">
+          <div class="en">"Where is the gate for flight AA2831?"</div>
+          <div class="zh">AA2831 的登機門在哪裡？</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CUSTOMS Q&A ═══════════════ -->
+<div id="customs" class="wrap">
+  <h2 class="section-title">💬 海關問答備忘</h2>
+  <div class="qa-grid">
+
+    <div class="qa">
+      <div class="qa-q">1. 來美目的？<span class="qe">What is the purpose of your visit?</span></div>
+      <div class="qa-a"><span class="ae">"I am here to visit my son and travel."</span><br>來探望兒子並旅遊。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">2. 最終目的地？<span class="qe">Where is your final destination?</span></div>
+      <div class="qa-a"><span class="ae">"Washington D.C."</span><br>華盛頓特區。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">3. 住在哪裡？<span class="qe">Where will you be staying?</span></div>
+      <div class="qa-a"><span class="ae">"My son's apartment in Virginia. 701 Seaton Ave Unit 518. Alexandria, VA"</span><br>住兒子在維吉尼亞的公寓。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">4. 停留多久？<span class="qe">How long will you stay?</span></div>
+      <div class="qa-a"><span class="ae">"For 9 days."</span><br>待 9 天。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">5. 兒子在美國做什麼？<span class="qe">What does your son do?</span></div>
+      <div class="qa-a"><span class="ae">"He is a graduate student at Virginia Tech."</span><br>他在維吉尼亞理工讀碩士。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">6. 帶多少現金？<span class="qe">How much cash are you carrying?</span></div>
+      <div class="qa-a"><span class="ae">"About 2,000 US dollars."</span><br>帶大約 2,000 美金。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">7. 有帶食物嗎？<span class="qe">Do you have any food?</span></div>
+      <div class="qa-a"><span class="ae">"No meat, no fruit."</span><br>沒肉、沒水果。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">8. 請給我看護照<span class="qe">May I have your passport?</span></div>
+      <div class="qa-a"><span class="ae">"Here it is."</span><br>在這裡。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<div id="contact" class="wrap">
+  <h2 class="section-title">📞 緊急聯絡資訊</h2>
+  <div class="contact">
+    <h3>兒子聯絡方式</h3>
+    <div class="ci">
+      <span class="lbl">姓名</span>
+      <span>Chen-Wei Chang（張宸瑋）</span>
+    </div>
+    <div class="ci">
+      <span class="lbl">📱 手機</span>
+      <span><a href="tel:+15715947580" class="phone">571-594-7580</a></span>
+    </div>
+    <div class="ci">
+      <span class="lbl">🏠 地址</span>
+      <span>701 Seaton Ave Unit 518, Alexandria, Virginia</span>
+    </div>
+    <div class="ci">
+      <span class="lbl">🎓 身份</span>
+      <span>Virginia Tech 資工所研究生<br><small style="color:var(--muted);">Graduate Student, Computer Science</small></span>
+    </div>
+    <div class="note-box">
+      💡 如果海關詢問關於兒子的資訊，可以直接提供以上內容。
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ITINERARY ═══════════════ -->
+<div class="wrap">
+  <h2 class="section-title">🗓️ 每日行程</h2>
+
+  <!-- ── DAY 1 ── -->
+  <div class="day-card" id="day1">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">1</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>抵達 · 華盛頓特區遊覽</h2>
+        <span class="dt">5月15日出發 → 5月16日（五）抵達</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🌅 清晨 7:00 抵達</span>
+        <div class="place">
+          <div class="p-icon">🛬</div>
+          <div class="p-body">
+            <h4>抵達華盛頓特區 DCA</h4>
+            <p>AA2831 早上 7:00 抵達，先回家休息整頓，養足精神再出發。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl noon">☀️ 中午 — 權力中心巡禮</span>
+        <div class="place">
+          <div class="p-icon">🏛️</div>
+          <div class="p-body">
+            <h4>國會大廈（US Capitol）</h4>
+            <p>美國立法權力的象徵，純白大圓頂是華盛頓最重要的地標。</p>
+            <a href="https://maps.google.com/?q=United+States+Capitol,+Washington+DC" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🏠</div>
+          <div class="p-body">
+            <h4>白宮（The White House）</h4>
+            <p>從拉法葉廣場（Lafayette Square）外圍拍照，遠眺美國總統的辦公室與住所。</p>
+            <a href="https://maps.google.com/?q=The+White+House,+Washington+DC" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">☕</div>
+          <div class="p-body">
+            <h4>午餐 · 藍瓶咖啡（Blue Bottle Coffee）</h4>
+            <p>在附近用餐，喝一杯知名的藍瓶咖啡。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl aftn">🌤️ 下午 — 紀念碑長廊</span>
+        <div class="place">
+          <div class="p-icon">🗽</div>
+          <div class="p-body">
+            <h4>華盛頓紀念碑（Washington Monument）</h4>
+            <p>世界最高的石製建築。在廣場中心拍照，這根石柱代表了美國國父華盛頓的地位。</p>
+            <a href="https://maps.google.com/?q=Washington+Monument,+Washington+DC" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🏛️</div>
+          <div class="p-body">
+            <h4>林肯紀念堂（Lincoln Memorial）</h4>
+            <p>坐在階梯上看著反射池——馬丁路德金恩「我有一個夢」演講的地點。紀念堂模仿希臘神廟，象徵民主的根基。</p>
+            <a href="https://maps.google.com/?q=Lincoln+Memorial,+Washington+DC" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl evng">🌆 傍晚 — 歐風古鎮</span>
+        <div class="place">
+          <div class="p-icon">🧱</div>
+          <div class="p-body">
+            <h4>喬治城（Georgetown）</h4>
+            <p>華盛頓最古老的社區，充滿彩色紅磚房和鵝卵石街道，晚餐可以在此尋找。</p>
+            <a href="https://maps.google.com/?q=Georgetown,+Washington+DC" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>公寓（維吉尼亞）</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 2 ── -->
+  <div class="day-card" id="day2">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">2</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>前往黑堡 · 主校區畢業典禮</h2>
+        <span class="dt">5月16日（五）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🌅 上午 10:00</span>
+        <div class="place">
+          <div class="p-icon">🚗</div>
+          <div class="p-body">
+            <h4>出發前往黑堡</h4>
+            <p>約 10:00 從家裡出發，前往維吉尼亞理工大學所在的黑堡市（Blacksburg），車程約 4–5 小時。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl evng">🎓 傍晚 19:00</span>
+        <div class="place">
+          <div class="p-icon">🎓</div>
+          <div class="p-body">
+            <h4>畢業典禮 — 主校區</h4>
+            <p>Virginia Tech 主校區，典禮 19:00 開始。</p>
+            <a href="https://maps.google.com/?q=Virginia+Tech,+Blacksburg,+Virginia" target="_blank" class="map-link">📍 Virginia Tech 地圖</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>黑堡</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 3 ── -->
+  <div class="day-card" id="day3">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">3</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>DC 校區畢業典禮 · Outlet 血拼</h2>
+        <span class="dt">5月17日（六）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl noon">🎓 下午 13:00</span>
+        <div class="place">
+          <div class="p-icon">🎓</div>
+          <div class="p-body">
+            <h4>畢業典禮 — DC 校區</h4>
+            <p>典禮 13:00 開始。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl evng">🛍️ 傍晚</span>
+        <div class="place">
+          <div class="p-icon">🛍️</div>
+          <div class="p-body">
+            <h4>Potomac Mills Outlet 血拼</h4>
+            <p>維吉尼亞最大的 Outlet，各大品牌折扣店齊聚一堂。</p>
+            <a href="https://maps.google.com/?q=Potomac+Mills,+Woodbridge,+Virginia" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>家裡附近飯店</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 4 ── -->
+  <div class="day-card" id="day4">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">4</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>出發紐約 · 現代景觀</h2>
+        <span class="dt">5月18日（日）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🚂 上午 11:10 火車出發</span>
+        <div class="place">
+          <div class="p-icon">🚂</div>
+          <div class="p-body">
+            <h4>火車出發前往紐約</h4>
+            <p>🕚 11:10 出發，🕑 14:15 抵達紐約賓州車站（Penn Station）。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl aftn">🌤️ 下午</span>
+        <div class="place">
+          <div class="p-icon">🌿</div>
+          <div class="p-body">
+            <h4>高架公園（The High Line）</h4>
+            <p>廢棄鐵路改建的空中步道，兩旁種滿花草，曼哈頓最美的散步路線之一。</p>
+            <a href="https://maps.google.com/?q=The+High+Line,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl evng">🌅 傍晚</span>
+        <div class="place">
+          <div class="p-icon">🏙️</div>
+          <div class="p-body">
+            <h4>The Edge 觀景台</h4>
+            <p>曼哈頓最高的戶外觀景台，傍晚登頂可以看到夕陽與夜景，建議提前訂票。</p>
+            <a href="https://maps.google.com/?q=Edge+NYC,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl nite">🌙 晚餐</span>
+        <div class="place">
+          <div class="p-icon">🥩</div>
+          <div class="p-body">
+            <h4>Katz's Delicatessen（百年燻肉三明治）</h4>
+            <p>紐約最著名的熟食店，超大份量的燻牛肉三明治。建議三人分食兩份。</p>
+            <a href="https://maps.google.com/?q=Katz's+Delicatessen,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>紐約</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 5 ── -->
+  <div class="day-card" id="day5">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">5</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>經典曼哈頓</h2>
+        <span class="dt">5月19日（一）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🌅 早上</span>
+        <div class="place">
+          <div class="p-icon">🥯</div>
+          <div class="p-body">
+            <h4>Apollo Bagels（酸種貝果）</h4>
+            <p>目前吃過最好吃的貝果！酸種麵包口感紮實有嚼勁，強烈推薦。</p>
+            <a href="https://maps.google.com/?q=Apollo+Bagels,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🌳</div>
+          <div class="p-body">
+            <h4>中央公園（Central Park）</h4>
+            <p>早餐後在中央公園悠閒散步，感受這座城市最大的綠洲。</p>
+            <a href="https://maps.google.com/?q=Central+Park,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl noon">☀️ 午餐</span>
+        <div class="place">
+          <div class="p-icon">🥩</div>
+          <div class="p-body">
+            <h4>Gallagher's Steakhouse（百年炭烤牛排）</h4>
+            <p>1927 年開業的紐約經典牛排館，木炭現烤，香氣四溢。</p>
+            <a href="https://maps.google.com/?q=Gallagher's+Steakhouse,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl aftn">🌤️ 下午</span>
+        <div class="place">
+          <div class="p-icon">🛍️</div>
+          <div class="p-body">
+            <h4>第五大道（5th Avenue）</h4>
+            <p>世界最著名的購物大道，奢侈品牌林立，隨意逛逛拍照留念。</p>
+            <a href="https://maps.google.com/?q=5th+Ave,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🚉</div>
+          <div class="p-body">
+            <h4>中央車站（Grand Central Terminal）</h4>
+            <p>宏偉的舊式車站，以美麗的星空穹頂大廳聞名，免費入場欣賞。</p>
+            <a href="https://maps.google.com/?q=Grand+Central+Terminal,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🌟</div>
+          <div class="p-body">
+            <h4>時代廣場（Times Square）</h4>
+            <p>紐約最熱鬧的地標，五光十色的霓虹廣告牌，拍照打卡必訪。</p>
+            <a href="https://maps.google.com/?q=Times+Square,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl nite">🌙 晚餐</span>
+        <div class="place">
+          <div class="p-icon">🌮</div>
+          <div class="p-body">
+            <h4>LOS TACOS No.1（墨西哥捲餅）</h4>
+            <p>紐約著名的塔可連鎖，皮薄餡多、新鮮現做，物超所值。</p>
+            <a href="https://maps.google.com/?q=LOS+TACOS+No.1,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>紐約</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 6 ── -->
+  <div class="day-card" id="day6">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">6</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>歷史與大橋</h2>
+        <span class="dt">5月20日（二）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🌅 早上 — 金融區步行</span>
+        <div class="place">
+          <div class="p-icon">🐂</div>
+          <div class="p-body">
+            <h4>銅牛（Charging Bull）</h4>
+            <p>華爾街最有名的雕塑，象徵金融市場的牛市與樂觀精神。</p>
+            <a href="https://maps.google.com/?q=Charging+Bull,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🏛️</div>
+          <div class="p-body">
+            <h4>紐約證交所（NYSE）· 911 紀念館 · 遠眺自由女神</h4>
+            <p>在金融區步行，從岸邊遠眺自由女神像（無需搭船也能看到）。</p>
+            <a href="https://maps.google.com/?q=9/11+Memorial,+New+York" target="_blank" class="map-link">📍 911紀念館地圖</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl noon">☀️ 午餐</span>
+        <div class="place">
+          <div class="p-icon">🍜</div>
+          <div class="p-body">
+            <h4>西關腸粉王（廣式手工腸粉）</h4>
+            <p>旁邊的食客都說：沒想到最好吃的腸粉在紐約！嫩滑的廣式腸粉，米漿現做。</p>
+            <a href="https://maps.google.com/?q=West+Rice+Roll+King,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl aftn">🌤️ 下午</span>
+        <div class="place">
+          <div class="p-icon">📸</div>
+          <div class="p-body">
+            <h4>Dumbo 區拍照</h4>
+            <p>布魯克林最有特色的文青區域，可拍到曼哈頓橋的經典構圖。</p>
+            <a href="https://maps.google.com/?q=Dumbo,+Brooklyn,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🌉</div>
+          <div class="p-body">
+            <h4>步行布魯克林大橋回曼哈頓</h4>
+            <p>沿著步行道從布魯克林走回曼哈頓，欣賞紐約天際線，約 20–30 分鐘。</p>
+            <a href="https://maps.google.com/?q=Brooklyn+Bridge,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl nite">🌙 晚餐</span>
+        <div class="place">
+          <div class="p-icon">🍝</div>
+          <div class="p-body">
+            <h4>Il Corallo Trattoria（經典義大利麵）</h4>
+            <p>紐約小義大利區的傳統義式餐廳，分量大、口味道地。</p>
+            <a href="https://maps.google.com/?q=Il+Corallo+Trattoria,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>紐約</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 7 ── -->
+  <div class="day-card" id="day7">
+    <div class="day-hdr">
+      <div class="badge"><span class="bn">7</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>藝術與悠閒 · 返回華盛頓</h2>
+        <span class="dt">5月21日（三）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="t-block">
+        <span class="t-lbl morn">🌅 早上</span>
+        <div class="place">
+          <div class="p-icon">☕</div>
+          <div class="p-body">
+            <h4>La Cabra 咖啡</h4>
+            <p>北歐風格精品咖啡，口感清爽細膩。</p>
+            <a href="https://maps.google.com/?q=La+Cabra,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🛍️</div>
+          <div class="p-body">
+            <h4>SoHo 區逛街</h4>
+            <p>時尚品牌、獨立設計師、藝廊林立，紐約最潮的購物街區。</p>
+            <a href="https://maps.google.com/?q=SoHo,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+        <div class="place">
+          <div class="p-icon">🌸</div>
+          <div class="p-body">
+            <h4>Le Labo 香水（香水街散步）</h4>
+            <p>全球知名手工調香品牌，在 SoHo 附近，可以體驗獨特香氛。</p>
+            <a href="https://maps.google.com/?q=Le+Labo,+New+York" target="_blank" class="map-link">📍 在地圖上查看</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dvdr"></div>
+
+      <div class="t-block">
+        <span class="t-lbl aftn">🚂 下午 15:00 返程</span>
+        <div class="place">
+          <div class="p-icon">🚂</div>
+          <div class="p-body">
+            <h4>火車返回華盛頓特區</h4>
+            <p>🕒 15:00 從紐約出發，🕡 18:30 抵達華盛頓。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stay">🛌 <span>住宿：<strong>公寓（維吉尼亞）</strong></span></div>
+    </div>
+  </div>
+
+  <!-- ── DAY 8 – DEPARTURE ── -->
+  <div class="day-card" id="day8">
+    <div class="day-hdr gray">
+      <div class="badge silver"><span class="bn">8</span><span class="bl">DAY</span></div>
+      <div class="hdr-txt">
+        <h2>回程 ✈️ 返回台灣</h2>
+        <span class="dt">5月22日（四）</span>
+      </div>
+    </div>
+    <div class="day-body">
+
+      <div class="info-box">
+        ✅ <span>回程行李<strong>會直掛台北</strong>，轉機時不需要再提領行李，直接找下一個登機門即可。</span>
+      </div>
+
+      <div class="t-block" style="margin-top:16px">
+        <span class="t-lbl flgt">✈ 第一段</span>
+        <div class="flight-card dep" style="margin:0">
+          <div class="flight-top">
+            <div>
+              <div class="fn">AS 007</div>
+              <div class="fa">阿拉斯加航空 Alaska Airlines</div>
+            </div>
+            <div class="fd">5月22日（四）</div>
+          </div>
+          <div class="flight-route">
+            <div class="airport">
+              <div class="a-code">DCA</div>
+              <div class="a-city">華盛頓特區</div>
+              <div class="a-time">18:59</div>
+            </div>
+            <div class="route-mid">
+              <div class="r-dur">6小時5分鐘</div>
+              <div class="r-line"><span class="r-plane">✈</span></div>
+            </div>
+            <div class="airport">
+              <div class="a-code">SFO</div>
+              <div class="a-city">舊金山</div>
+              <div class="a-time">22:04</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-block" style="margin-top:16px">
+        <span class="t-lbl flgt">✈ 第二段</span>
+        <div class="flight-card dep" style="margin:0">
+          <div class="flight-top">
+            <div>
+              <div class="fn">JX 011</div>
+              <div class="fa">星宇航空 STARLUX Airlines</div>
+            </div>
+            <div class="fd">5月23日（五）深夜</div>
+          </div>
+          <div class="flight-route">
+            <div class="airport">
+              <div class="a-code">SFO</div>
+              <div class="a-city">舊金山</div>
+              <div class="a-time">00:50</div>
+            </div>
+            <div class="route-mid">
+              <div class="r-dur">13小時35分鐘</div>
+              <div class="r-line"><span class="r-plane">✈</span></div>
+            </div>
+            <div class="airport">
+              <div class="a-code">TPE</div>
+              <div class="a-city">台北桃園</div>
+              <div class="a-time">05:25 +1</div>
+            </div>
+          </div>
+          <div class="flight-note">🏠 抵達台灣：5月24日（六）早上 5:25，平安回家！</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <p>🇺🇸 美國之旅 2025 — 爸媽加油！</p>
+  <p style="margin-top:10px; font-size:0.9em;">
+    有任何問題，立刻打電話給 <strong>Chen-Wei</strong>：
+    <a href="tel:+15715947580"><strong>571-594-7580</strong></a>
+  </p>
+  <p style="margin-top:8px; font-size:0.8em; opacity:0.7;">一路平安 · 旅途愉快 ✨</p>
+</footer>
+
+</body>
+</html>
