@@ -37,6 +37,25 @@
       -webkit-overflow-scrolling: touch;
     }
     nav::-webkit-scrollbar { display: none; }
+    .nav-toggle {
+      display: none;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-align: left;
+      padding: 13px 14px;
+      cursor: pointer;
+    }
+    .nav-toggle .chev {
+      float: right;
+      transition: transform 0.2s ease;
+    }
+    nav.open .nav-toggle .chev { transform: rotate(180deg); }
+    .nav-links { display: inline; }
     nav a {
       display: inline-block;
       color: rgba(255,255,255,0.75);
@@ -311,8 +330,41 @@
     .btt:hover { background: var(--blue); transform: translateY(-3px); }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav {
+        overflow: visible;
+        white-space: normal;
+      }
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        padding: 6px 10px 10px;
+      }
+      nav.js-nav .nav-toggle { display: block; }
+      nav.js-nav .nav-links {
+        display: none;
+        border-top: 1px solid rgba(255,255,255,0.12);
+      }
+      nav.js-nav.open .nav-links {
+        display: grid;
+      }
+      nav a {
+        display: block;
+        text-align: center;
+        padding: 10px 8px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.9);
+      }
+      nav a:hover { background: rgba(255,255,255,0.18); }
+    }
     @media (max-width: 580px) {
       body { font-size: 16px; }
+      .nav-links,
+      nav.js-nav.open .nav-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .hero h1 { font-size: 1.7em; }
       .wrap { padding: 28px 12px; }
       .day-body { padding: 16px; }
@@ -330,18 +382,23 @@
 
 <!-- NAVIGATION -->
 <nav id="top">
-  <a href="#flights-arr">✈ 去程</a>
-  <a href="#entry">🛂 入境</a>
-  <a href="#customs">💬 海關</a>
-  <a href="#contact">📞 聯絡</a>
-  <a href="#day1">Day 1</a>
-  <a href="#day2">Day 2</a>
-  <a href="#day3">Day 3</a>
-  <a href="#day4">Day 4</a>
-  <a href="#day5">Day 5</a>
-  <a href="#day6">Day 6</a>
-  <a href="#day7">Day 7</a>
-  <a href="#day8">↩ 回程</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+    ☰ 行程導覽 <span class="chev">▾</span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#flights-arr">✈ 去程</a>
+    <a href="#entry">🛂 入境</a>
+    <a href="#customs">💬 海關</a>
+    <a href="#contact">📞 聯絡</a>
+    <a href="#day1">Day 1</a>
+    <a href="#day2">Day 2</a>
+    <a href="#day3">Day 3</a>
+    <a href="#day4">Day 4</a>
+    <a href="#day5">Day 5</a>
+    <a href="#day6">Day 6</a>
+    <a href="#day7">Day 7</a>
+    <a href="#day8">↩ 回程</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1147,13 +1204,51 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>🇺🇸 美國之旅 2025 — 爸媽加油！</p>
+  <p>🇺🇸 美國之旅 2025！</p>
   <p style="margin-top:10px; font-size:0.9em;">
-    有任何問題，立刻打電話給 <strong>Chen-Wei</strong>：
+    有任何問題，打電話給我 <strong>Chen-Wei</strong>：
     <a href="tel:+15715947580"><strong>571-594-7580</strong></a>
   </p>
   <p style="margin-top:8px; font-size:0.8em; opacity:0.7;">一路平安 · 旅途愉快 ✨</p>
 </footer>
+
+<script>
+  const topNav = document.getElementById('top');
+  const navToggleBtn = topNav ? topNav.querySelector('.nav-toggle') : null;
+  const navLinks = topNav ? topNav.querySelectorAll('.nav-links a') : [];
+  const mobileNavQuery = window.matchMedia('(max-width: 700px)');
+
+  function closeMobileNav() {
+    if (!topNav || !navToggleBtn) return;
+    topNav.classList.remove('open');
+    navToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (topNav && navToggleBtn) {
+    topNav.classList.add('js-nav');
+
+    navToggleBtn.addEventListener('click', () => {
+      const isOpen = topNav.classList.toggle('open');
+      navToggleBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (mobileNavQuery.matches) closeMobileNav();
+      });
+    });
+
+    if (mobileNavQuery.addEventListener) {
+      mobileNavQuery.addEventListener('change', (event) => {
+        if (!event.matches) closeMobileNav();
+      });
+    } else if (mobileNavQuery.addListener) {
+      mobileNavQuery.addListener((event) => {
+        if (!event.matches) closeMobileNav();
+      });
+    }
+  }
+</script>
 
 </body>
 </html>
